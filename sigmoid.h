@@ -5,6 +5,6 @@
 * Author:Siyuan e2002077
 ********************************************************/
 
-float sigmoid(float x);
-float sigmoid_d(float x);
-float deriv(float x);
+double sigmoid(double x);
+double sigmoid_d(double x);
+double deriv(double x);
