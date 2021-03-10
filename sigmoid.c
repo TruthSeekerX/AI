@@ -3,6 +3,8 @@
 * sigmoid(),sigmoid_d(),deriv().
 * Language: C
 * Author:Siyuan e2002077
+* Version: v0.1
+* 10.03.2021 (dd.mm.yyyy)
 ********************************************************/
 
 #include <math.h>			//Using -lm to link math.h when compile by gcc
