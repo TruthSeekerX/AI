@@ -14,6 +14,7 @@
 
 void ai_train(double trn_inpts[][3],double trn_otpts[], double snptc_wghts[], uint32_t iterations){
 	
+	printf("Training...... press ctrl+x to exit.\n");
 	double outputs[4];
 	double error[4];
 	double trs_trn_inpts[3][4];
@@ -64,9 +65,10 @@ void ai_train(double trn_inpts[][3],double trn_otpts[], double snptc_wghts[], ui
 		}
 		
 //		printf("\n");
-		printf("-------------------------------------------------------------------------------------------------------------------------\n");
-	printf("error:   %9lf, %9lf, %9lf, %9lf \n", error[0],error[1],error[2],error[3]);
-	printf("outputs: %9lf, %9lf, %9lf, %9lf \n", outputs[0],outputs[1],outputs[2],outputs[3]);
-	printf("wghts  : %9lf, %9lf, %9lf \n", snptc_wghts[0],snptc_wghts[1],snptc_wghts[2]);
+//		printf("-------------------------------------------------------------------------------------------------------------------------\n");
+//	printf("error:   %9lf, %9lf, %9lf, %9lf \n", error[0],error[1],error[2],error[3]);
+//	printf("outputs: %9lf, %9lf, %9lf, %9lf \n", outputs[0],outputs[1],outputs[2],outputs[3]);
+//	printf("wghts  : %9lf, %9lf, %9lf \n", snptc_wghts[0],snptc_wghts[1],snptc_wghts[2]);
 	}
+	
 }
