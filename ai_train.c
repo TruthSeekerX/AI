@@ -14,7 +14,7 @@
 
 void ai_train(double trn_inpts[][3],double trn_otpts[], double snptc_wghts[], uint32_t iterations){
 	
-	printf("Training...... press ctrl+x to exit.\n");
+	printf("Training...... press ctrl+z to exit.\n");
 	double outputs[4];
 	double error[4];
 	double trs_trn_inpts[3][4];
