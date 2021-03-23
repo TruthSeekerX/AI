@@ -16,6 +16,9 @@ Main objectives:
 	12. Arrays
 	13. Pointers
 	14. Memory allocation
+	15. Strings
+	16. Abstract Data Types 
+	17. File Input and Output
 	 
 Extra objectives:
 	1. Computer architechture. 
@@ -24,3 +27,5 @@ Extra objectives:
 		c. How does ...
 	2. Using git/github for version control of the development.
 	3. Using make/cmake for management of the build process.
+	
+

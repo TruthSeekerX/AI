@@ -25,11 +25,11 @@ int rand_genf(int num_1, int num_2, double array[], uint8_t size){
 *Procedure: Generates sudo-random double precicion floating numbers with giving arguments.  
 ************************************************************************
 ****************/
-srand(time(NULL));	//NULL is equivalent as 0 here. srand initialise the sudo-random function with base of time() function.
+	srand(time(NULL));	//NULL is equivalent as 0 here. srand initialise the sudo-random function with base of time() function.
 
 	int temp,i;
 	if (num_1 > num_2) {
-	// sort num_1 and num_2 as num_1 is the smaller one and num_2 is the bigger one
+	// swap num1 and num2 if num_1 is greater than num_2
 		temp = num_1;
 		num_1 = num_2;
 		num_2 = temp;

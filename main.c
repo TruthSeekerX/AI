@@ -18,10 +18,11 @@
 #include "ai_generator.h" 	//for rand_genf() function
 
 int main(int argc, char *argv[]){
-	double snptc_wghts[3];		//synaptic weights
-	uint32_t itrt;			//iterations 
+	double snptc_wghts[3];		//declare synaptic weights
+	uint32_t itrt;			//declare iteration number variable 
 	
-	rand_genf(-1.0, 1.0, snptc_wghts, 3);		//function for generates sudo-random number between user defined [-1,1] in this case, and fill the array snptc_wghts, 3 the the size of the array. 
+	rand_genf(-1.0, 1.0, snptc_wghts, 3);		//function for generates sudo-random number between user defined [-1,1] in this case,
+							//and fill the array snptc_wghts, 3 indicates the the size of the array. 
 
 	double	trn_inpts_1[4][3] = {{0.0,0.5,1},{0.5,0,0},{0.9,0.1,0.1},{0.5,0.9,0.9}};		//training inputs data
 	double	otpts_1[4] = {0,1,1,0};								//training outputs data
@@ -33,14 +34,14 @@ int main(int argc, char *argv[]){
 	double	otpts_3[4] = {0,0,0,0};
 										
 	
-	printf("How many time of iterations would you like to ai_train?\n");
+	printf("How many times of iterations per training would you like to have? There will be three trainings sesseons.\n");
 	scanf(" %ud", &itrt);
 	
-	ai_train(trn_inpts_1, otpts_1, snptc_wghts, itrt); 		//calling ai_train() function to calculate optimal synaptic wights for each colour and output the result to snptc_wghts[]
-	ai_train(trn_inpts_2, otpts_2, snptc_wghts, itrt);
+	ai_train(trn_inpts_1, otpts_1, snptc_wghts, itrt); 		//calling ai_train() function to calculate optimal synaptic wights for each colour 
+	ai_train(trn_inpts_2, otpts_2, snptc_wghts, itrt);		//and output the result to snptc_wghts[]
 	ai_train(trn_inpts_3, otpts_3, snptc_wghts, itrt);
 	
-	printf("AI has just done %d times of traning. Now please make your choice: \n",itrt);
+	printf("AI has just done %d times of traning. Now please make your choice: \n",itrt * 3);
 
 	uint8_t opt = 0;			//options from user input
 
@@ -48,7 +49,7 @@ int main(int argc, char *argv[]){
 	
 	int (*ptr_opt[2])(double *);		//delcaration of the function pointer array for calling functions accroding to user choices
 
-	ptr_opt[0] = ai_analys_man;		//pointing to the desired function
+	ptr_opt[0] = ai_analys_manual_input;		//pointing to the desired function
 	ptr_opt[1] = ai_analys_rand;
 	
 	ptr_opt[opt-1](snptc_wghts);		//opt

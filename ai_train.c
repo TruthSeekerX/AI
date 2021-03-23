@@ -52,7 +52,16 @@ void ai_train(double trn_inpts[][3],double trn_otpts[], double snptc_wghts[], ui
 		**************************************************************/		
 			for(uint8_t c=0;c<3;c++){
 				trs_trn_inpts[c][r]=trn_inpts[r][c];
-			}	
+			}
+			/* For such a small number of iterations a rolling loop is more effeciant
+			*  trs_trn_inpts[0][0] = trn_inputs[0][0];
+			*  trs_trn_inpts[0][1] = trn_inputs[1][0];
+			*  trs_trn_inpts[0][2] = trn_inputs[2][0];
+			*  trs_trn_inpts[0][3] = trn_inputs[3][0];
+			*
+			*  trs_trn_inpts[1][0] = trn_inputs[0][1];
+			*  ......................................			
+			*/	
 		}
 		
 		for(uint8_t k = 0;k < 3; k++){
