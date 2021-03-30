@@ -49,10 +49,16 @@ int ui_opt(uint8_t *ptr_opt){		//This function asks user to choose one of the tw
 	
 	do{
 		flg_err = 0;
+		
 		printf("1. Input a colour manually.\n2. Find a red colour from randomly generated colours.\n Please choose 1 or 2 and press enter.\n");
 		
-		if (scanf(" %hhu",ptr_opt) == EOF){
+		
+		if (scanf("%hhu",ptr_opt) < 1 ){
+			char temp;
+			while((temp = getchar()) != EOF && temp != '\n');	//flush the stream
+			
 			printf("Input error, please try again.\n");
+			
 			flg_err = 1;	//error code 1
 			}
 		else if(*ptr_opt != 1 && *ptr_opt !=2){
@@ -61,7 +67,7 @@ int ui_opt(uint8_t *ptr_opt){		//This function asks user to choose one of the tw
 		} 
 	}while(flg_err != 0);		//the loop runs infinitly untill flg_err = 0, no error detected 
 	
-	return 0;
+	return flg_err;
 }
 
 int ppm_gen(double rgb[]){
@@ -92,7 +98,7 @@ int ppm_gen(double rgb[]){
 			fprintf(pic,"\n");		//put a new line for easier reading by humans
 		}
 		fclose(pic);				//close the file
-		printf("file is ready.");
+		printf("file is ready.\n");
 		
 //		system("./colour_sample.ppm");	//pessmision denied. Maybe not good idea for security reason
 		return 0;				//return 0 if sucess
@@ -150,7 +156,7 @@ int ai_analys_rand(double snptc_wghts[]){
 	uint8_t flg = 0;	//a flag for indicating true(1) or false(0)
 	
 	do{
-	//This loop asks user at last to continue or quit
+	//This loop asks user to continue or quit
 		uint32_t cnt = 0;	//for counting how many colours are generated when red colour is found
 		
 		do{
@@ -166,7 +172,7 @@ int ai_analys_rand(double snptc_wghts[]){
 		system("cowsay Found red color");	//using system call to excute program "cowsay" from terminal, linux only. requires "cowsay" is installed.
 		puts("");
 		
-		printf("There were totally %u random colours generated.\n",cnt);
+		printf("There were totally %u random colours generated before found red.\n",cnt);
 		
 		printf("Click the link too see your colour.");
 		printf("https://convertingcolors.com/rgb-color-%hhu_%hhu_%hhu.html\n",(uint8_t)(rgb[0]*255),(uint8_t)(rgb[1]*255),(uint8_t)(rgb[2]*255));
